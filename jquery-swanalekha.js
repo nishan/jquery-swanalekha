@@ -3,11 +3,11 @@
   
   var defaults = {  
    showCheckBox : false,
+   showCheckBoxBefore : false,
+   showOnlyLabel : false,
    outlineStyle : 'dashed 1px red',
    checkBoxLabel : 'മലയാളത്തില്‍ എഴുതാന്‍ Ctrl+m അമര്‍ത്തുക.<a href="tools/swanalekha.html"  target="content" title="സഹായം">?</a>'
   };  
-
-//  alert(options.outlineStyle);    
   return this.each(function() {  
   var options = $.extend(defaults, opts);  
   	var widget = this;
@@ -2359,9 +2359,16 @@ else if (checkbox.attachEvent)
             {
             var p = document.createElement("p");
             p.setAttribute("style","width:100%;height:1px;margin-top:0em;");
-            p.innerHTML = '<input type="checkbox" id="toggle">'+options.checkBoxLabel+'</input>';
-            $(textBox).after(p);
-	    textBox.checkBox = p;
+	    if (options.showOnlyLabel)
+		p.innerHTML = options.checkBoxLabel;
+	    else	
+	        p.innerHTML = '<input type="checkbox" id="toggle">'+options.checkBoxLabel+'</input>';
+	    if (options.showCheckBoxBefore)
+		$(textBox).before(p);
+	    else
+	        $(textBox).after(p);
+	    if (!options.showOnlyLabel)
+		    textBox.checkBox = p;
 
              }
              catch(ex)
