@@ -1,1 +1,30 @@
 Jquery plugin for Swanalekha
+
+
+INSTALLATION
+Include swanalekha script in you html. Thats all.
+<script src="jquery-swanalekha.js" ></script>
+
+You should have also included jquery as well. 
+
+USAGE:
+
+$(selector_exp).swanalekha() 
+
+This will enable swnalekha on elements selected by the selector experssion.
+
+For eg : $("#t_input").swanalekha() will enable swanalekha on the element with id 't_input'
+Eg: $("textarea").swanalekha() will enable swanalekha on all textareas
+Eg: $("input").swanaleka() will enable swanaleka on all inputs, but only text inputs will actually be enabled.
+
+Swanalekha can be customised with following options :
+showCheckBox : if true, a checkbox will be sown near the text elements.
+outlineStyle : Style of the text element when its swanalekha enabled
+checkBoxLabel : Label of the checkbox, is relevant only if you have showCheckBox=true.
+
+You can use the options as follows
+
+$("textarea").swanalekha({showCheckBox: true, outlineStyle:'dashed 1px green'});
+
+See test.html for more examples
+
